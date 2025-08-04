@@ -1,0 +1,25 @@
+# Nmap 7.95 scan initiated Mon Aug  4 21:18:22 2025 as: /usr/lib/nmap/nmap --privileged -sS -oN scan_results.txt 172.20.10.0/24
+Nmap scan report for 172.20.10.1
+Host is up (0.0048s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT      STATE SERVICE
+21/tcp    open  ftp
+53/tcp    open  domain
+49152/tcp open  unknown
+62078/tcp open  iphone-sync
+MAC Address: FE:9C:A7:6C:72:64 (Unknown)
+
+Nmap scan report for 172.20.10.3
+Host is up (0.0091s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT     STATE SERVICE
+7100/tcp open  font-service
+8000/tcp open  http-alt
+MAC Address: 64:E0:03:93:46:95 (Hui Zhou Gaoshengda Technology)
+
+Nmap scan report for 172.20.10.5
+Host is up (0.0000030s latency).
+All 1000 scanned ports on 172.20.10.5 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+
+# Nmap done at Mon Aug  4 21:21:39 2025 -- 256 IP addresses (3 hosts up) scanned in 196.29 seconds

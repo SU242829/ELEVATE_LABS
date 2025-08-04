@@ -1,137 +1,55 @@
-Cyber Security Internship – Task 1 Report
+ Cyber Security Internship – Task 1
 
-Task Title:
+Task: Network Port Scanning & Analysis using Nmap & Wireshark
 
-Network Port Scanning & Analysis Using Nmap and Wireshark
+This task involved scanning the local network to identify active devices, open ports, and the services running on them. The scan results were analyzed to evaluate potential security risks. Wireshark was used to capture packets during the scan to understand how a TCP SYN scan works at the packet level.
 
-Objective:
-To perform a TCP SYN scan on the local network using Nmap, identify open ports and running services,
+Tools Used
+Nmap – Port scanning tool
+Wireshark– Network traffic capture and analysis
+Kali Linux – Operating system used for performing the scan
+Mobile Hotspot – Used as local network environment
 
-analyze network traffic with Wireshark, and assess potential security risks.
+---
 
-
-Tools Used:
-
-Nmap – For port scanning
-
-Wireshark – For packet capture and analysis
-
-Kali Linux – Operating system
-
-Mobile Hotspot – Local network environment
-
-
-Network Details:
-
-Local IP Address: 172.20.10.9
-
+Network Info
 Local IP Range Scanned: 172.20.10.0/24
-
-
 Devices Detected: 3
-
-Nmap Scan Summary:
-
-➤ Host 1 – 172.20.10.1
-
-Port,Service,Description
-
-21/tcp	open	FTP	Insecure file transfer protocol
-
-53/tcp	open	DNS	Domain name resolution service
-
-49152/tcp	open	Unknown	Likely custom or dynamic service
-
-62078/tcp	open	iPhone-sync	Apple mobile device sync
+  - 172.20.10.1 – Mobile hotspot/router
+  - 172.20.10.3 – IoT/smart device
+  - 172.20.10.5 – Kali Linux scanner
 
 
 
-Host 2 – 172.20.10.3
+Summary of Results
+| IP Address      | Open Ports                         |
+|------------------|------------------------------------|
+| 172.20.10.1      | 21 (FTP), 53 (DNS), 49152, 62078   |
+| 172.20.10.3      | 7100 (font-service), 8000 (http-alt) |
+| 172.20.10.5      | No open ports                     |
 
-Port,Service,Description
+---
 
-7100/tcp	font-service	Legacy font service (rarely used)
+Security Risks Identified
+FTP (Port 21) is unencrypted — should be disabled or replaced with SFTP.
+High-numbered ports(49152, 62078, 8000) may be exposing custom or dynamic services.
+Unsecured HTTP (Port 8000)could leak data if used publicly.
 
-8000/tcp	http-alt	Alternate web server port
+---
 
-
-
-All 1000 TCP ports are closed
-
-Host is up, but not exposing any services
-
-
-
-Wireshark Analysis:
-
-Observations:
-
-SYN packets sent by Nmap to each device in the subnet
-
-SYN-ACK responses received from open ports (e.g., 21, 53, 8000)
-
-RST packets received from closed ports
-
-Packet capture confirms standard behavior of a TCP SYN scan
+Files Included in This Repo
+- scan_results.txt – Nmap output
+- .png – Wireshark screenshots
+- syn_packets_filter.png
+- syn_ack_response.png
+- rst_response_closed_port.png
+- initial_syn_packets.png
+- Final_CyberSecurity_Task1_Report.docx – Full written report
+- README.md – This file
 
 
-
-Screenshots Taken:
-
-SYN packet filter applied in Wireshark
-
-SYN-ACK response packet (open port)
-
-RST response packet (closed port)
-
-Live capture during full scan
-
-
-
-Common Services Researched:
-
-Port	    Service	                Common Use Case	                      Risk Level
-21	        FTP	                 Unencrypted file transfers	               High
-53	        DNS	                   Name resolution	                       Medium
-49152	   Dynamic Port	             Custom service	                        Medium
-62078	   iPhone-sync	           Apple sync service	                       Low
-7100	  font-service	           Legacy font protocol	                    Medium
-8000	    http-alt	            Alternate web server	                    Medium
-
-
-
-Security Risk Summary:
-
-• FTP (port 21) is outdated and unencrypted. Vulnerable to credential theft and should be replaced with SFTP.
-
-• Port 8000 may expose a web service — secure it or restrict access via firewall.
-
-• Port 7100 is not commonly used and should be disabled if not required.
-
-• High-numbered ports like 49152 may allow custom applications; should be monitored.
-
-
-
-Files Included in GitHub Repo:
-
-• scan_results.txt
-
-• scan_results.html
-
-• Wireshark screenshots
-
-• Updated_CyberSecurity_Task1_Report.docx
-
-• README.md
-
-
-
-Key Takeaways:
-
-Learned to perform and analyze TCP SYN scans using Nmap
-
-Understood behavior of TCP flags in Wireshark
-
-Documented open ports and associated risks
-
-Gained hands-on exposure to identifying insecure services
+ Key Takeaways
+- Learned to perform local network port scanning
+- Understood how SYN scans function using TCP handshake
+- Practiced traffic filtering and analysis with Wireshark
+- Recognized potential vulnerabilities from open ports

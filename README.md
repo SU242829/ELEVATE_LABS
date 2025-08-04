@@ -77,6 +77,9 @@ Files Included in GitHub Repo:
 
 Key Takeaways:
 Learned to perform and analyze TCP SYN scans using Nmap
+
 Understood behavior of TCP flags in Wireshark
+
 Documented open ports and associated risks
+
 Gained hands-on exposure to identifying insecure services

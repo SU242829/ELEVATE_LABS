@@ -32,7 +32,9 @@ Summary of Results
 
 Security Risks Identified
 FTP (Port 21) is unencrypted — should be disabled or replaced with SFTP.
+
 High-numbered ports(49152, 62078, 8000) may be exposing custom or dynamic services.
+
 Unsecured HTTP (Port 8000)could leak data if used publicly.
 
 ---
